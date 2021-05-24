@@ -17,11 +17,25 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+const allowedOrigins = [
+  'https://url-shortener-frontnd.herokuapp.com',
+  'capacitor://localhost',
+  'ionic://localhost',
+  'http://localhost',
+];
+
 const corsOptions = {
-  origin: 'https://url-shortener-frontnd.herokuapp.com',
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed by CORS'));
+    }
+  },
   optionsSuccessStatus: 204,
 };
 
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
 app.use('/', Home);
