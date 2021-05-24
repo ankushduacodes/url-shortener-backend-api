@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
-const { USERNAME, PASSWORD } = require('../helpers/config');
+const envs = require('../helpers/config');
 
 const urlSchema = require('./schemas/urlSchema');
 
-const mongoUri = `mongodb+srv://${USERNAME}:${PASSWORD}@urlcluster.rnftd.mongodb.net/ShortUrls?retryWrites=true&w=majority`;
+const username = envs.parsed.USERNAME || process.env.USERNAME;
+const password = envs.parsed.PASSWORD || process.env.PASSWORD;
+
+const mongoUri = `mongodb+srv://${username}:${password}@urlcluster.rnftd.mongodb.net/ShortUrls?retryWrites=true&w=majority`;
 
 mongoose.connect(
   mongoUri,
