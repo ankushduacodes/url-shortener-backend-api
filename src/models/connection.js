@@ -4,8 +4,8 @@ const envs = require('../helpers/config');
 
 const urlSchema = require('./schemas/urlSchema');
 
-const username = envs.parsed.USERNAME || process.env.USERNAME;
-const password = envs.parsed.PASSWORD || process.env.PASSWORD;
+const username = envs?.parsed?.USERNAME || process.env.USERNAME;
+const password = envs?.parsed?.PASSWORD || process.env.PASSWORD;
 
 const mongoUri = `mongodb+srv://${username}:${password}@urlcluster.rnftd.mongodb.net/ShortUrls?retryWrites=true&w=majority`;
 
