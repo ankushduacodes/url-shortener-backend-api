@@ -11,3 +11,5 @@ if (result.error) {
 const { parsed: envs } = result;
 
 module.exports = envs;
+
+module.exports.BASE_URL = 'http://localhost:8001';
