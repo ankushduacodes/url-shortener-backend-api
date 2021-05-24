@@ -20,13 +20,13 @@ app.use(bodyParser.json());
 const allowedOrigins = [
   'https://url-shortener-frontnd.herokuapp.com',
   'capacitor://localhost',
-  'ionic://localhost',
   'http://localhost',
 ];
 
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
+      console.log(origin);
       callback(null, true);
     } else {
       callback(new Error('Origin not allowed by CORS'));
