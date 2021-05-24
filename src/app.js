@@ -1,8 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
 
+const path = require('path');
 const Home = require('./routes/index');
+
+const notFoundTempalte = fs.readFileSync(path.resolve(`${__dirname}/static/notFound.html`), 'utf-8');
 
 const app = express();
 const port = process.env.PORT || 8001;
@@ -27,7 +31,7 @@ app.use((req, res, next) => {
 
   // respond with html page
   if (req.accepts('html')) {
-    res.send('<h1>Not Found</h1><br><p>Go to or <a href="http://localhost:8080">website</a> to generate a new link</p>');
+    res.send(notFoundTempalte);
     return;
   }
 
