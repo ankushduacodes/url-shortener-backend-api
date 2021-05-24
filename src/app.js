@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: 'https://url-shortener-frontnd.herokuapp.com/',
+  origin: 'https://url-shortener-frontnd.herokuapp.com',
   optionsSuccessStatus: 204,
 };
 
