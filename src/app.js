@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: 'http://localhost:8080',
+  origin: 'https://url-shortener-frontnd.herokuapp.com/',
   optionsSuccessStatus: 204,
 };
 
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}`);
+  console.log(`Listening on ${port}`);
 })
   .on('error', (error) => {
     if (error.errno === 'EADDRINUSE') {

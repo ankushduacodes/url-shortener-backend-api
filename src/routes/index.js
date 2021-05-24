@@ -8,14 +8,14 @@ const { BASE_URL } = require('../helpers/config');
 
 router.get('/favicon.ico', (req, res) => res.sendStatus(204));
 
-// TODO: Add validation to detect if url being sent is already a shortend url
+// TODO: Add validation to detect if url being sent is already a shortened url
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await Url.findOne({ uniqueId: id });
     return res.redirect(301, result.url);
   } catch (error) {
-    return res.redirect(301, `http://localhost:8080/notfound/${id}`);
+    return res.redirect(301, `https://url-shortener-frontnd.herokuapp.com/notfound/${id}`);
   }
 });
 
