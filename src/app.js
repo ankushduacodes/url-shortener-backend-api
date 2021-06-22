@@ -21,6 +21,7 @@ const allowedOrigins = [
   'https://url-shortener-frontnd.herokuapp.com',
   'capacitor://localhost',
   'http://localhost',
+  'https://url-shortnr.netlify.app',
 ];
 
 const corsOptions = {
