@@ -22,6 +22,7 @@ const allowedOrigins = [
   'capacitor://localhost',
   'http://localhost',
   'https://url-shortnr.netlify.app',
+  'http://localhost:8080',
 ];
 
 const corsOptions = {
